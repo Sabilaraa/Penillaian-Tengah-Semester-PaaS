@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduLearn Cloud</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #f9f9f9, #e0f7fa);
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+
+    h1 {
+      font-weight: 600;
+      font-size: 2rem;
+      color: #00796b;
+      margin-bottom: 20px;
+    }
+
+    form {
+      background: #fff;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    form input {
+      width: 90%;
+      margin: 10px 0;
+      padding: 10px 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    form input:focus {
+      border-color: #009688;
+      box-shadow: 0 0 5px rgba(0, 150, 136, 0.3);
+    }
+
+    button {
+      background-color: #009688;
+      color: white;
+      border: none;
+      padding: 10px 25px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      margin-top: 10px;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #00796b;
+      transform: scale(1.05);
+    }
+
+    h2 {
+      margin-top: 50px;
+      font-weight: 600;
+      color: #004d40;
+    }
+
+    ul {
+      list-style: none;
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 0;
+    }
+
+    li {
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      text-align: center;
+      width: 200px;
+      transition: 0.3s;
+    }
+
+    li:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    li img {
+      margin-top: 10px;
+      border-radius: 10px;
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+    }
+
+    footer {
+      margin-top: 50px;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    footer a {
+      color: #00796b;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>📚 EduLearn Cloud</h1>
+  <form action="/add" method="POST" enctype="multipart/form-data">
+    <input type="text" name="nama" placeholder="Masukkan nama lengkap" required><br>
+    <input type="email" name="email" placeholder="Masukkan email" required><br>
+    <input type="file" name="foto" accept="image/*"><br>
+    <button type="submit">💾 Simpan</button>
+  </form>
+
+  <h2>👩‍🎓 Daftar Pengguna</h2>
+  <ul>
+    <% users.forEach(user => { %>
+      <li>
+        <strong><%= user.nama %></strong><br>
+        <em><%= user.email %></em>
+        <% if (user.foto) { %>
+          <br><img src="/<%= user.foto %>" alt="Foto <%= user.nama %>">
+        <% } %>
+      </li>
+    <% }) %>
+  </ul>
+
+  <footer>
+    <p>© 2025 EduLearn Cloud • by <a href="#">Salsabila Rafeyfa Asyla</a></p>
+  </footer>
+</body>
+</html>
